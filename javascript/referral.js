@@ -48,11 +48,14 @@ const setText2 = (user) => {
   const user = getCookie("user");
   const token = getCookie("token");
   try {
-    const response = await fetch("/api/user/find", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ token, user }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/find",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token, user }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {

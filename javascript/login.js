@@ -37,11 +37,14 @@ function setCookie_01(user, token) {
 const loginUser = async (email, password) => {
   try {
     document.querySelector("#login").innerHTML = "proccessing...";
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/login",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {
@@ -69,16 +72,19 @@ const getReferral = () => {
 const registerUser = async (email, phone_number, country) => {
   try {
     document.querySelector("#next").innerHTML = "proccessing...";
-    const response = await fetch("/api/newuser/register", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        email,
-        phone_number,
-        country,
-        referral: getReferral() || "null",
-      }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/newuser/register",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email,
+          phone_number,
+          country,
+          referral: getReferral() || "null",
+        }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {

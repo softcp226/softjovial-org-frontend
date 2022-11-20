@@ -32,12 +32,12 @@ const handle_delete_withdrawal = async (btn, withdrawal_request) => {
   let admin = getCookie("admin");
   try {
     const response = await fetch(
-      "/api/admin/withdrawal/fetch/withdrawal/delete",
+      "https://softjovial-backend.glitch.me/api/admin/withdrawal/fetch/withdrawal/delete",
       {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ token, admin, withdrawal_request }),
-      }
+      },
     );
     const result = await response.json();
     console.log(result);
@@ -130,11 +130,14 @@ const setText = (userInfo) => {
   let token = getCookie("admin_token");
   let admin = getCookie("admin");
   try {
-    const response = await fetch("/api/admin/withdrawal/fetch", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ token, admin }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/admin/withdrawal/fetch",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token, admin }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error)

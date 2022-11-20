@@ -31,11 +31,14 @@ const handle_delete_user = async (event, user_id) => {
   let token = getCookie("admin_token");
   let admin = getCookie("admin");
   try {
-    const response = await fetch("/api/admin/users/delete_user", {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ token, admin, user: user_id }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/admin/users/delete_user",
+      {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token, admin, user: user_id }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {
@@ -98,11 +101,14 @@ const setText = (userInfo) => {
   let token = getCookie("admin_token");
   let admin = getCookie("admin");
   try {
-    const response = await fetch("/api/admin/fetch_users", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ token, admin }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/admin/fetch_users",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token, admin }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error)

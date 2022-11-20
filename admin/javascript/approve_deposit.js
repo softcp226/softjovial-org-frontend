@@ -26,11 +26,14 @@ function getCookie(cname) {
 const submit_deposit_approval = async (form) => {
   document.querySelector("#submit").innerHTML = "processing...";
   try {
-    const response = await fetch("/api/admin/deposit/approve", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/admin/deposit/approve",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(form),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {
@@ -69,11 +72,14 @@ document.querySelector("#submit").onclick = () => {
   const deposit_request = getParam();
 
   try {
-    const response = await fetch("/api/admin/deposit_request/single", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ token, admin, deposit_request }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/admin/deposit_request/single",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token, admin, deposit_request }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error)

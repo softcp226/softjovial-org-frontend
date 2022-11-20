@@ -25,12 +25,15 @@ const get_user = (cname) => {
 const submit_receipt = async (form) => {
   document.querySelector("#submit").innerHTML = "processing...";
   try {
-    const response = await fetch("/api/user/deposit/complete", {
-      method: "POST",
-      // headers:{"content-type":"application/json"},
-      // body:JSON.stringify(user_form)
-      body: form,
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/deposit/complete",
+      {
+        method: "POST",
+        // headers:{"content-type":"application/json"},
+        // body:JSON.stringify(user_form)
+        body: form,
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {

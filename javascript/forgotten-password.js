@@ -3,11 +3,14 @@ const fetch_recover_password = async (email) => {
   //   let user = getCookie("user");
   document.querySelector("#submit").innerHTML = "Proccessing...";
   try {
-    const response = await fetch("/api/password/forgotten", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/password/forgotten",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {

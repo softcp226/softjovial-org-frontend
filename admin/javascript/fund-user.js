@@ -26,11 +26,14 @@ function getCookie(cname) {
 const handle_deposit = async (form) => {
   document.querySelector("#submit").innerHTML = "processing...";
   try {
-    const response = await fetch("/api/admin/user/fund", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/admin/user/fund",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(form),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {

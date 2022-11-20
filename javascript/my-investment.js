@@ -18,15 +18,18 @@
 let handle_cancel_investment = async (button, investment) => {
   try {
     button.innerHTML = "proccessing...";
-    const response = await fetch("/api/user/investment/cancel", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        token: getCookie("token"),
-        user: getCookie("user"),
-        investment: investment,
-      }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/investment/cancel",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          token: getCookie("token"),
+          user: getCookie("user"),
+          investment: investment,
+        }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {
@@ -103,11 +106,14 @@ const shape_result = (investments) => {
   let token = getCookie("token");
   let user = getCookie("user");
   try {
-    const response = await fetch("/api/user/investments/fetch", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ token, user }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/investments/fetch",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token, user }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error)

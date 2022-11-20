@@ -18,11 +18,14 @@ const checkCookie = (cname) => {
 const handle_withdrawal = async (form) => {
   try {
     document.querySelector("#submit").innerHTML = "proccessing...";
-    const response = await fetch("/api/user/withdraw", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/withdraw",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(form),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {
