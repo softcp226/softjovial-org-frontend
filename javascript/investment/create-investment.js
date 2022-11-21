@@ -7,18 +7,21 @@ const handle_submit_request = async (form) => {
   const user = getCookie("user");
   document.querySelector("#submit").innerHTML = "proccesing...";
   try {
-    const response = await fetch("/api/user/create_investment", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        token,
-        user,
-        investment_plan: form.plan,
-        investment_amount: form.amount,
-        return_time: return_time.value,
-        profit: form.profit,
-      }),
-    });
+    const response = await fetch(
+      "https://softjovial-backend.glitch.me/api/user/create_investment",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          token,
+          user,
+          investment_plan: form.plan,
+          investment_amount: form.amount,
+          return_time: return_time.value,
+          profit: form.profit,
+        }),
+      },
+    );
     const result = await response.json();
     console.log(result);
     if (result.error) {
