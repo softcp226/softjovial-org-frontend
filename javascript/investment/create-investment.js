@@ -42,11 +42,11 @@ const handle_button_request = () => {
       if (parseInt(amount.value) < 100) return show_err();
       disable_show_err();
       if (return_time.value == "daily_return") {
-        var percentage = "daily Percentage: 15%";
+        var percentage = "daily Percentage: 5%";
         var earning = `My Profit: $${Math.round(
-          (amount.value / 100) * 15
+          (amount.value / 100) * 5
         )}`;
-        profit = Math.round((amount.value / 100) * 15);
+        profit = Math.round((amount.value / 100) * 5);
         write_percentage(percentage, earning);
         handle_submit_request({
           profit,
@@ -57,9 +57,9 @@ const handle_button_request = () => {
       } else {
         var percentage = "Weekly Percentage: 105%";
         var earning = `My Profit: $${Math.round(
-          (amount.value / 100) * 15 * 7
+          (amount.value / 100) * 5 * 7
         )}`;
-        profit = Math.round((amount.value / 100) * 15 * 7);
+        profit = Math.round((amount.value / 100) * 5 * 7);
         write_percentage(percentage, earning);
         handle_submit_request({
           profit,
@@ -75,11 +75,11 @@ const handle_button_request = () => {
       if (parseInt(amount.value) < 1000) return show_err();
       disable_show_err();
       if (return_time.value == "daily_return") {
-        var percentage = "daily Percentage: 25%";
+        var percentage = "daily Percentage: 20%";
         var earning = `My Profit: $${Math.round(
-          (amount.value / 100) * 25
+          (amount.value / 100) * 20
         )}`;
-        profit = Math.round((amount.value / 100) * 25);
+        profit = Math.round((amount.value / 100) * 20);
         write_percentage(percentage, earning);
         handle_submit_request({
           profit,
@@ -90,9 +90,9 @@ const handle_button_request = () => {
       } else {
         var percentage = "Weekly Percentage: 175%";
         var earning = `My Profit: $${Math.round(
-          (amount.value / 100) * 25 * 7
+          (amount.value / 100) * 20 * 7
         )}`;
-        profit = Math.round((amount.value / 100) * 25 * 7);
+        profit = Math.round((amount.value / 100) * 20 * 7);
         write_percentage(percentage, earning);
         handle_submit_request({
           profit,
@@ -239,9 +239,9 @@ const handle_button_request = () => {
 
 //     case "Standard Plan":
 //       if (!investment_amount.value) return;
-//       if (parseInt(investment_amount.value) < 1500) return show_err();
-//       var percentage = "Weekly Percentage: 25%";
-//       var earning = `My Profit: $${(investment_amount.value / 100) * 25}`;
+//       if (parseInt(investment_amount.value) < 500) return show_err();
+//       var percentage = "Weekly Percentage: 20%";
+//       var earning = `My Profit: $${(investment_amount.value / 100) * 20}`;
 //       write_percentage(percentage, earning);
 //       handle_submit_request({
 //         plan: plan.value,
