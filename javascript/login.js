@@ -39,6 +39,8 @@ const loginUser = async (email, password) => {
     document.querySelector("#login").innerHTML = "proccessing...";
     const response = await fetch(
       "https://softjovial-backend.glitch.me/api/user/login",
+      // "http://localhost:5000/api/user/login",
+
       {
         method: "POST",
         headers: { "content-type": "application/json" },

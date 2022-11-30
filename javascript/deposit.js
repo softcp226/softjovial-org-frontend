@@ -237,14 +237,6 @@
 //   //   );
 // };
 
-
-
-
-
-
-
-
-
 const checkCookie = (cname) => {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
@@ -334,6 +326,8 @@ const handle_submit_deposit = async (form) => {
     document.querySelector("#submit").innerHTML = "proccessing...";
     const response = await fetch(
       "https://softjovial-backend.glitch.me/api/user/create_deposit",
+      // "http://localhost:5000/api/user/create_deposit",
+
       {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -357,9 +351,9 @@ const handle_submit_deposit = async (form) => {
 
 document.querySelector("#submit").onclick = () => {
   if (!deposit_amount.value) return show_input_error(deposit_amount);
-  if (parseInt(deposit_amount.value) < 200) {
+  if (parseInt(deposit_amount.value) < 25) {
     document.querySelector(".errMessage").innerHTML =
-      "deposit amount must not be lesser than minimum deposit of $200 USD";
+      "deposit amount must not be lesser than minimum deposit of $25 ";
     show_input_error(deposit_amount);
     return;
   }
