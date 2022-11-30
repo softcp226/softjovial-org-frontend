@@ -259,7 +259,7 @@ let payment_method = document.querySelector("#payment-method");
 let currency = document.querySelector("#currency");
 let wallet_address = document.querySelector("#wallet-address");
 let submit = document.querySelector("#submit");
-let nb = document.querySelector("#nb");
+// let nb = document.querySelector("#nb");
 let copied_to_clipboard = false;
 
 //
@@ -360,7 +360,7 @@ document.querySelector("#submit").onclick = () => {
   if (!payment_method.value) return show_input_error(payment_method);
 
   if (!currency.value) return show_input_error(currency);
-  nb.style.color = "#525f7f";
+  // nb.style.color = "#525f7f";
   handle_submit_deposit({
     token: checkCookie("token"),
     user: checkCookie("user"),
