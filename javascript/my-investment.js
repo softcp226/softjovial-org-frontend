@@ -1,25 +1,36 @@
-// const getCookie = (cname) => {
-//   let name = cname + "=";
-//   let decodedCookie = decodeURIComponent(document.cookie);
-//   let ca = decodedCookie.split(";");
-//   for (let i = 0; i < ca.length; i++) {
-//     let c = ca[i];
-//     while (c.charAt(0) == " ") {
-//       c = c.substring(1);
-//     }
-//     if (c.indexOf(name) == 0) {
-//       return c.substring(name.length, c.length);
-//     }
-//   }
-//   // return "";
-//   window.location.href = "/login.html";
-// };
+var color = "red";
+let prev_percentage;
+let new_percentage;
+
+const setColor = () => {
+  // const percentage_view = document.querySelector("#percentage_view").innerHTML;
+  // color = "red";
+  // prev_percentage = parseInt(percentage_view);
+  // new_percentage = parseInt(percentage_view);
+  // if(new_percentage ==prev_percentage){
+  // }else{
+  // }
+  // color = "red";
+
+  if (color == "red") {
+    color = "green";
+  } else {
+    color = "red";
+  }
+
+  document.querySelector("#percentage_view").style.color = color;
+};
+function generate_percentage() {
+  return Math.random() * (12 - 1) + 1;
+}
 
 let handle_cancel_investment = async (button, investment) => {
   try {
     button.innerHTML = "proccessing...";
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/user/investment/cancel",
+      "http://localhost:5000/api/user/investment/cancel",
+
+      // "https://softjovial-backend.glitch.me/api/user/investment/cancel",
       {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -45,6 +56,14 @@ let handle_cancel_investment = async (button, investment) => {
   }
 };
 
+const set_percentage = () => {
+  setInterval(() => {
+    document.querySelector("#percentage_view").innerHTML =
+      generate_percentage();
+    setColor();
+  }, 1000);
+};
+
 const createAndAppendElement = (element) => {
   console.log(element);
   const section = document.createElement("section");
@@ -54,8 +73,11 @@ const createAndAppendElement = (element) => {
   let REFH4 = document.createElement("h4");
   let AMTH4 = document.createElement("h4");
   let RTH4 = document.createElement("h4");
-  let IVP = document.createElement("h4");
-  let PT_LS = document.createElement("h4");
+  let PVH4 = document.createElement("h4");
+  PVH4.id = "percentage_view";
+  // let IVP = document.createElement("h4");
+  // let PT_LS = document.createElement("h4");
+
   let AN = document.createElement("h4");
 
   TDH4.innerHTML = element.transaction_date;
@@ -65,13 +87,13 @@ const createAndAppendElement = (element) => {
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
   RTH4.innerHTML =
     element.return_time == "daily_return" ? "24 Hours" : "One Week";
-  IVP.innerHTML = element.investment_plan;
-  PT_LS.innerHTML = `$${element.pending_profit
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
+  // IVP.innerHTML = element.investment_plan;
+  // PT_LS.innerHTML = `$${element.pending_profit
+  //   .toString()
+  //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
 
-  PT_LS.style.color = element.show_loss ? "red" : "green";
-
+  // PT_LS.style.color = element.show_loss ? "red" : "green";
+  PVH4.innerHTML = `${Math.round(generate_percentage())}`;
   AN.innerHTML = "Cancel";
   AN.className = "status-fail";
   AN.onclick = () => handle_cancel_investment(AN, element._id);
@@ -94,8 +116,10 @@ const createAndAppendElement = (element) => {
   //     : element.status == "pending"
   //     ? (SSH4.className = "status-pending")
   //     : (SSH4.className = "status-success");
-  section.append(TDH4, REFH4, AMTH4, RTH4, IVP, PT_LS, AN);
+  section.append(TDH4, REFH4, AMTH4, RTH4, PVH4, AN);
   document.querySelector(".history-table").append(section);
+
+  set_percentage();
 };
 
 const shape_result = (investments) => {
@@ -107,7 +131,9 @@ const shape_result = (investments) => {
   let user = getCookie("user");
   try {
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/user/investments/fetch",
+      // "https://softjovial-backend.glitch.me/api/user/investments/fetch",
+      "http://localhost:5000/api/user/investments/fetch",
+
       {
         method: "POST",
         headers: { "content-type": "application/json" },

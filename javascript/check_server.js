@@ -13,6 +13,6 @@
       console.log(result.message);
     }
   } catch (error) {
-    alert(error.message);
+    console.log(error.message);
   }
 })();

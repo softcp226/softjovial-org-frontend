@@ -13,7 +13,7 @@ const disable_show_err = () => {
 };
 
 function generate_percentage() {
-  return Math.random() * (12- 8.5) + 8.5;
+  return Math.random() * (12 - 8.5) + 8.5;
 }
 
 let profit;
@@ -22,31 +22,50 @@ let profit;
 
 const handle_request = () => {
   if (!amount.value) return;
+  if (!currency.value) return;
   if (!return_time.value) return;
   switch (return_time.value) {
     case "daily_return":
       if (parseInt(amount.value) < 25) return show_err();
       disable_show_err();
-      profit = Math.round((amount.value / 100) * generate_percentage);
+      profit = Math.round(amount.value / 100 * generate_percentag());
+      handle_submit_request({
+        profit,
+        return_time: return_time.value,
+        currency: currency.value,
+        amount: amount.value,
+      });
       break;
 
     case "4_days_return":
       if (parseInt(amount.value) < 25) return show_err();
       disable_show_err();
-      profit = Math.round((amount.value / 100) * generate_percentage);
+      profit = Math.round(amount.value / 100 * (generate_percentage() + 1.5));
+      handle_submit_request({
+        profit,
+        return_time: return_time.value,
+        currency: currency.value,
+        amount: amount.value,
+      });
       break;
-      
-    case "4_days_return":
+
+    case "weekly_return":
       if (parseInt(amount.value) < 25) return show_err();
       disable_show_err();
-      profit = Math.round((amount.value / 100) * generate_percentage);
+      profit = Math.round(amount.value / 100 * (generate_percentage() + 2.5));
+      handle_submit_request({
+        profit,
+        return_time: return_time.value,
+        currency: currency.value,
+        amount: amount.value,
+      });
       break;
 
     default:
       break;
   }
-  // switch (plan.value) {
-  //   case "Basic Plan":
+  // switch (return_time.value) {
+  //   case "Basic return_time":
   //     if (!amount.value) return;
   //     if (!return_time.value) return;
   //     if (parseInt(amount.value) < 100) return show_err();
@@ -69,7 +88,7 @@ const handle_request = () => {
   //       break;
   //     }
 
-  //   case "Premium Plan":
+  //   case "Premium return_time":
   //     if (!amount.value) return;
   //     if (!return_time.value) return;
   //     if (parseInt(amount.value) < 1000) return show_err();
@@ -92,7 +111,7 @@ const handle_request = () => {
   //       break;
   //     }
 
-  //   case "Standard Plan":
+  //   case "Standard return_time":
   //     if (!amount.value) return;
   //     if (!return_time.value) return;
   //     if (parseInt(amount.value) < 3000) return show_err();
@@ -115,7 +134,7 @@ const handle_request = () => {
   //       break;
   //     }
 
-  //   case "Enterprise Plan":
+  //   case "Enterprise return_time":
   //     if (!amount.value) return;
   //     if (!return_time.value) return;
   //     if (parseInt(amount.value) < 6000) return show_err();
@@ -139,7 +158,7 @@ const handle_request = () => {
   //       break;
   //     }
 
-  //   case "Ultimate Plan":
+  //   case "Ultimate return_time":
   //     if (!amount.value) return;
   //     if (!return_time.value) return;
   //     if (parseInt(amount.value) < 9000) return show_err();
@@ -172,10 +191,8 @@ const handle_request = () => {
 const handle_keychange = () => {
   if (!amount.value) return display_error(amount);
   hide_error(amount);
-  // if (!plan.value) return display_error(plan);
-  // hide_error(plan);
+  if (!currency.value) return display_error(currency);
+  hide_error(currency);
   if (!return_time.value) return display_error(return_time);
-
   hide_error(return_time);
-  handle_request();
 };

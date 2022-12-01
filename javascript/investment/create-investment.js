@@ -1,6 +1,6 @@
 
 amount.onkeyup = () => handle_keychange();
-// plan.onchange = () => handle_keychange();
+currency.onchange = () => handle_keychange();
 return_time.onchange = () => handle_keychange();
 
 const handle_submit_request = async (form) => {
@@ -9,16 +9,18 @@ const handle_submit_request = async (form) => {
   document.querySelector("#submit").innerHTML = "proccesing...";
   try {
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/user/create_investment",
+      // "https://softjovial-backend.glitch.me/api/user/create_investment",
+      "http://localhost:5000/api/user/create_investment",
+
       {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           token,
           user,
-          investment_plan: form.plan,
           investment_amount: form.amount,
-          return_time: return_time.value,
+          currency:form.currency,
+          return_time: form.return_time,
           profit: form.profit,
         }),
       },
@@ -203,12 +205,20 @@ const handle_submit_request = async (form) => {
 
 
 document.querySelector("#submit").onclick = () => {
-  let investment_amount = document.querySelector("#amount");
-  let plan = document.querySelector("#plan");
+if (!amount.value) return display_error(amount);
+hide_error(amount);
+if (!currency.value) return display_error(currency);
+hide_error(currency);
+if (!return_time.value) return display_error(return_time);
+hide_error(return_time);
+ 
+  handle_request();
+  // let investment_amount = document.querySelector("#amount");
+  // let plan = document.querySelector("#plan");
 
-  if (!investment_amount.value)
-    return (investment_amount.style.border = "2px solid red");
-  if (!plan.value) return (plan.style.border = "2px solid red");
-  handle_button_request();
+  // if (!investment_amount.value)
+  //   return (investment_amount.style.border = "2px solid red");
+  // if (!plan.value) return (plan.style.border = "2px solid red");
+  // handle_button_request();
 };
 
