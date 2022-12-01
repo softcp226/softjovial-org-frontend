@@ -28,7 +28,7 @@ const handle_request = () => {
     case "daily_return":
       if (parseInt(amount.value) < 25) return show_err();
       disable_show_err();
-      profit = Math.round(amount.value / 100 * generate_percentag());
+      profit = Math.round(amount.value / 100 * generate_percentage());
       handle_submit_request({
         profit,
         return_time: return_time.value,

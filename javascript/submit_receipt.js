@@ -26,12 +26,14 @@ const submit_receipt = async (form) => {
   document.querySelector("#submit").innerHTML = "processing...";
   try {
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/user/deposit/complete",
+      "http://localhost:5000/api/user/deposit/complete",
+
+      // "https://softjovial-backend.glitch.me/api/user/deposit/complete",
       {
         method: "POST",
-        // headers:{"content-type":"application/json"},
-        // body:JSON.stringify(user_form)
-        body: form,
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(form),
+        // body: form,
       },
     );
     const result = await response.json();
@@ -51,16 +53,22 @@ const submit_receipt = async (form) => {
 };
 
 document.querySelector("#submit").onclick = () => {
-  const receipt = document.querySelector("#receipt");
-  if (!receipt.files[0]) return (receipt.style.border = "2px solid red");
-  receipt.style.border = "2px solid #fff";
+  const transaction_hash = document.querySelector("#transaction_hash");
+  if (!transaction_hash.value)
+    return (transaction_hash.style.border = "2px solid red");
+  transaction_hash.style.border = "2px solid #fff";
   const user = get_user("user");
   const token = get_user("token");
   const deposit_request_id = getParam();
-  const formdata = new FormData();
-  formdata.append("token", token);
-  formdata.append("user", user);
-  formdata.append("receipt", receipt.files[0]);
-  formdata.append("deposit_request_id", deposit_request_id);
-  submit_receipt(formdata);
+  // const formdata = new FormData();
+  // formdata.append("token", token);
+  // formdata.append("user", user);
+  // formdata.append("receipt", receipt.files[0]);
+  // formdata.append("deposit_request_id", deposit_request_id);
+  submit_receipt({
+    user,
+    token,
+    transaction_hash: transaction_hash.value,
+    deposit_request_id,
+  });
 };

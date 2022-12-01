@@ -18,7 +18,7 @@
   <!-- CSS Files -->
   <link href="dashboard/assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
   <link rel="stylesheet" href="css/card.css">
-  <script src="javascript/check_login.js"></script>
+  <!-- <script src="javascript/check_login.js"></script> -->
 <!-- <script src="javascript/check_login.js"></script> -->
 
 
@@ -254,9 +254,9 @@
         <div class="header-body">
 
           <div class="head-text">
-       <h2 class="h4 mb-0 text-white text-uppercase " >Upload Proof of Payment</h2>
+       <h2 class="h4 mb-0 text-white text-uppercase " >Upload Transaction Hash</h2>
       
-<h2 style="color: #fff;" >Please before you click on confirm payment make sure you have <a href="" style="color: rgba(37,184,213,1);">sent payment  to the wallet you previously copied</a></h2>
+<h2 style="color: #fff;" >Upload transaction Hash <a href="" style="color: rgba(37,184,213,1);">to confirm deposit</a></h2>
           </div>
 
        </div>
@@ -265,8 +265,8 @@
 
    <figure class="card">
 <div class="container-bg">
-<h3 class=" m-2">Upload Proof of Payment to confirm payment</h3>
-<h2 style="color: rgb(35, 29, 29);" class=" m-2">NB: <p style="color: rgb(103, 98, 98);">back your payment up with screenshot on any evidence of payment</p></h2>
+<h3 class=" m-2">Upload Transaction Hash</h3>
+<!-- <h2 style="color: rgb(35, 29, 29);" class=" m-2">NB: <p style="color: rgb(103, 98, 98);">back your payment up with screenshot on any evidence of payment</p></h2> -->
 
 <div
             class="errMessage m-2"
@@ -276,7 +276,7 @@
               font-weight: 500;
             "
           ></div>
-<input type="file" name="" id="receipt" placeholder="Select File">
+<input type="text" name="" id="transaction_hash" placeholder="Transaction Hash">
 <!-- <input type="text" id="" name="" placeholder="INVESTMENT AMOUNT">
 <select name="" id="">
   <option value="">Payment Method</option>
@@ -292,7 +292,7 @@
 <label for="wallet-address" style="margin: 0px; padding: 0px; line-height: 0px;">wallet address:</label>
 <div class="wallet-address"></div> -->
 <!-- remember to show where to make payment -->
-<button class="btn btn-primary m-2" id="submit">confirm payment</button>
+<button class="btn btn-dark m-2" id="submit">confirm payment</button>
 </div>
 
 <div class="container-sm"></div>
