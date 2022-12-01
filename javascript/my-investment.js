@@ -85,8 +85,7 @@ const createAndAppendElement = (element) => {
   AMTH4.innerHTML = `$${element.amount
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
-  RTH4.innerHTML =
-    element.return_time == "daily_return" ? "24 Hours" : "One Week";
+  RTH4.innerHTML =element.return_time;
   // IVP.innerHTML = element.investment_plan;
   // PT_LS.innerHTML = `$${element.pending_profit
   //   .toString()

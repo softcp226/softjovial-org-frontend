@@ -62,7 +62,7 @@ const createAndAppendElement = (element) => {
   const depositor = document.createElement("h4");
   const currency = document.createElement("h4");
   const amount = document.createElement("h4");
-  const proof_evidence = document.createElement("a");
+  const proof_evidence = document.createElement("h4");
   const approve = document.createElement("button");
   const del = document.createElement("button");
   depositor.innerHTML = element.user
@@ -73,10 +73,10 @@ const createAndAppendElement = (element) => {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 
-  proof_evidence.innerHTML = "View Proof/evidence";
+  proof_evidence.innerHTML = element.transaction_hash;
   // proof_evidence.onclick = () => window.location.replace(element.proof);
-  proof_evidence.href = element.proof || "/admin/user_deposits.html";
-  proof_evidence.className = "btn btn-secondary";
+  // proof_evidence.href = element.proof || "/admin/user_deposits.html";
+  // proof_evidence.className = "btn btn-secondary";
   approve.innerHTML = "Appprove Deposit";
   approve.className = "btn btn-primary";
   del.innerHTML = "Delete deposit";
