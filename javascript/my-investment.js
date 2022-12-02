@@ -2,27 +2,27 @@ var color = "red";
 let prev_percentage;
 let new_percentage;
 
-const setColor = () => {
-  // const percentage_view = document.querySelector("#percentage_view").innerHTML;
-  // color = "red";
-  // prev_percentage = parseInt(percentage_view);
-  // new_percentage = parseInt(percentage_view);
-  // if(new_percentage ==prev_percentage){
-  // }else{
-  // }
-  // color = "red";
+// const setColor = () => {
+//   // const percentage_view = document.querySelector("#percentage_view").innerHTML;
+//   // color = "red";
+//   // prev_percentage = parseInt(percentage_view);
+//   // new_percentage = parseInt(percentage_view);
+//   // if(new_percentage ==prev_percentage){
+//   // }else{
+//   // }
+//   // color = "red";
 
-  if (color == "red") {
-    color = "green";
-  } else {
-    color = "red";
-  }
+//   if (color == "red") {
+//     color = "green";
+//   } else {
+//     color = "red";
+//   }
 
-  document.querySelector("#percentage_view").style.color = color;
-};
-function generate_percentage() {
-  return Math.random() * (12 - 1) + 1;
-}
+//   document.querySelector("#percentage_view").style.color = color;
+// };
+// function generate_percentage() {
+//   return Math.random() * (12 - 1) + 1;
+// }
 
 let handle_cancel_investment = async (button, investment) => {
   try {
@@ -56,13 +56,13 @@ let handle_cancel_investment = async (button, investment) => {
   }
 };
 
-const set_percentage = () => {
-  setInterval(() => {
-    document.querySelector("#percentage_view").innerHTML =
-      generate_percentage();
-    setColor();
-  }, 1000);
-};
+// const set_percentage = () => {
+//   setInterval(() => {
+//     document.querySelector("#percentage_view").innerHTML =
+//       generate_percentage();
+//     setColor();
+//   }, 1000);
+// };
 
 const createAndAppendElement = (element) => {
   console.log(element);
@@ -73,8 +73,8 @@ const createAndAppendElement = (element) => {
   let REFH4 = document.createElement("h4");
   let AMTH4 = document.createElement("h4");
   let RTH4 = document.createElement("h4");
-  let PVH4 = document.createElement("h4");
-  PVH4.id = "percentage_view";
+  let EPH4 = document.createElement("h4");
+  EPH4.id = "percentage_view";
   // let IVP = document.createElement("h4");
   // let PT_LS = document.createElement("h4");
 
@@ -92,7 +92,9 @@ const createAndAppendElement = (element) => {
   //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
 
   // PT_LS.style.color = element.show_loss ? "red" : "green";
-  PVH4.innerHTML = `${Math.round(generate_percentage())}`;
+  EPH4.innerHTML = `$${element.pending_profit.toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;;
+    EPH4.style.color="green"
   AN.innerHTML = "Cancel";
   AN.className = "status-fail";
   AN.onclick = () => handle_cancel_investment(AN, element._id);
@@ -115,10 +117,10 @@ const createAndAppendElement = (element) => {
   //     : element.status == "pending"
   //     ? (SSH4.className = "status-pending")
   //     : (SSH4.className = "status-success");
-  section.append(TDH4, REFH4, AMTH4, RTH4, PVH4, AN);
+  section.append(TDH4, REFH4, AMTH4, RTH4, EPH4, AN);
   document.querySelector(".history-table").append(section);
 
-  set_percentage();
+  // set_percentage();
 };
 
 const shape_result = (investments) => {
