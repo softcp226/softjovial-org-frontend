@@ -66,6 +66,7 @@ const createAndAppendElement = (element) => {
   const RF = document.createElement("h4");
   const CCBTN = document.createElement("button");
   const DCBTN = document.createElement("button");
+  const RIBTN = document.createElement("button");
   E_M.innerHTML = `${element.email} || ${element.phone_number}`;
   final_balance.innerHTML = `$${element.final_balance
     .toString()
@@ -83,14 +84,21 @@ const createAndAppendElement = (element) => {
 
   CCBTN.innerHTML = "CREDIT USER";
   DCBTN.innerHTML = "DELETE USER";
+  RIBTN.innerHTML = "RAISE INVESTMENT";
+
   CCBTN.className = "btn btn-primary";
   DCBTN.className = "btn btn-danger";
+  RIBTN.className = "btn btn-primary";
+
   CCBTN.onclick = () =>
     (window.location.href = `/admin/fund-user.html?${element._id}`);
 
   DCBTN.onclick = () => handle_delete_user(event, element._id);
 
-  section.append(E_M, final_balance, P_L, AI, RF, CCBTN, DCBTN);
+  RIBTN.onclick = () =>
+    (window.location.href = `/admin/raise-investment.html?${element._id}`);
+
+  section.append(E_M, final_balance, P_L, AI, RF, CCBTN, DCBTN,RIBTN);
   document.querySelector(".history-table").append(section);
 };
 const setText = (userInfo) => {

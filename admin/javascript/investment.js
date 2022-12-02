@@ -73,7 +73,7 @@ const createAndAppendElement = (element) => {
   //     (window.location.href = `/admin/approve_deposit.html?${element._id}`);
   const date = document.createElement("h4");
   const investor = document.createElement("h4");
-  const investment_plan = document.createElement("h4");
+  const return_time = document.createElement("h4");
   let amount = document.createElement("h4");
   const profit = document.createElement("h4");
   const loss = document.createElement("h4");
@@ -83,7 +83,7 @@ const createAndAppendElement = (element) => {
   investor.innerHTML = element.user
     ? `${element.user.email} || ${element.user.phone_number}`
     : "not found";
-  investment_plan.innerHTML = element.investment_plan;
+  return_time.innerHTML = element.return_time;
   amount.innerHTML = `$${element.amount
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
@@ -104,7 +104,7 @@ const createAndAppendElement = (element) => {
   section.append(
     date,
     investor,
-    investment_plan,
+    return_time,
     amount,
     profit,
     loss,

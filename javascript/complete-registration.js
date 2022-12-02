@@ -64,7 +64,9 @@ const complete_registration = async (userInfo) => {
   try {
     document.querySelector("#register").innerHTML = "proccessing...";
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/new_user/complete_registration",
+      // "https://softjovial-backend.glitch.me/api/new_user/complete_registration",
+      "http://localhost:5000/api/new_user/complete_registration",
+
       {
         method: "POST",
         //   headers: { "content-type": "application/json" },
