@@ -69,62 +69,34 @@ const createAndAppendElement = (element) => {
   const section = document.createElement("section");
   section.className = "table-list-credit";
 
-  let TDH4 = document.createElement("h4");
-  let REFH4 = document.createElement("h4");
-  let AMTH4 = document.createElement("h4");
-  let RTH4 = document.createElement("h4");
-  let EPH4 = document.createElement("h4");
-  EPH4.id = "percentage_view";
+  let FNH4 = document.createElement("h4");
+  let LNH4 = document.createElement("h4");
+  let FDH4 = document.createElement("h4");
+//   let RTH4 = document.createElement("h4");
+//   let EPH4 = document.createElement("h4");
+//   EPH4.id = "percentage_view";
   // let IVP = document.createElement("h4");
   // let PT_LS = document.createElement("h4");
 
-  let AN = document.createElement("h4");
+//   let AN = document.createElement("h4");
 
-  TDH4.innerHTML = element.transaction_date;
-  REFH4.innerHTML = element.refrence_number;
-  AMTH4.innerHTML = `$${element.amount
+//   TDH4.innerHTML = element.transaction_date;
+//   REFH4.innerHTML = element.refrence_number;
+FNH4.innerHTML = element.first_name;
+LNH4.innerHTML=element.last_name
+  FDH4.innerHTML = `$${element.first_deposit
     .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
-  RTH4.innerHTML =element.return_time;
-  // IVP.innerHTML = element.investment_plan;
-  // PT_LS.innerHTML = `$${element.pending_profit
-  //   .toString()
-  //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
-
-  // PT_LS.style.color = element.show_loss ? "red" : "green";
-  EPH4.innerHTML = `$${element.pending_profit.toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;;
-    EPH4.style.color="green"
-  AN.innerHTML = "Cancel";
-  AN.className = "status-fail";
-  AN.onclick = () => handle_cancel_investment(AN, element._id);
-  //   IVP.innerHTML = element.investment_plan;
-  //   PT_LS.innerHTML = "+$3.30";
-  //()=>{
-  //       if(element.loss > 0){
-
-  //       }else{
-
-  //       }
-  //   }
-
-  //   DBH4.innerHTML = element.debit || "";
-  //   CDH4.innerHTML = element.credit || "";
-  //   SSH4.innerHTML = element.status;
-
-  //   element.status == "failed"
-  //     ? (SSH4.className = "status-fail")
-  //     : element.status == "pending"
-  //     ? (SSH4.className = "status-pending")
-  //     : (SSH4.className = "status-success");
-  section.append(TDH4, REFH4, AMTH4, RTH4, EPH4, AN);
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0` || "0";
+ 
+ 
+  section.append(FNH4,LNH4,FDH4);
   document.querySelector(".history-table").append(section);
 
   // set_percentage();
 };
 
-const shape_result = (investments) => {
-  investments.map((investment) => createAndAppendElement(investment));
+const shape_result = (referrals) => {
+  referrals.map((referral) => createAndAppendElement(referral));
 };
 
 (async () => {
@@ -132,8 +104,8 @@ const shape_result = (investments) => {
   let user = getCookie("user");
   try {
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/user/investments/fetch",
-      // "http://localhost:5000/api/user/investments/fetch",
+        "https://softjovial-backend.glitch.me/api/user/referral/fetch",
+      // "http://localhost:5000/api/user/referral/fetch",
 
       {
         method: "POST",

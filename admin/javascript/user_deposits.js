@@ -128,6 +128,8 @@ const setText = (userInfo) => {
   try {
     const response = await fetch(
       "https://softjovial-backend.glitch.me/api/admin/deposit_request",
+      // "http://localhost:5000/api/admin/deposit_request",
+
       {
         method: "POST",
         headers: { "content-type": "application/json" },
