@@ -67,6 +67,11 @@ video {
 .list_none.chart_list>li h6{
   color: #fff;
 }
+
+/* #mobile_app{
+position: absolute;
+} */
+
 @media (max-width: 699px) {
   video {
     width: 80%;
@@ -92,3 +97,7 @@ video {
     flex-direction: column;
   }
 }
+
+
+
+
