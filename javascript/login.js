@@ -38,7 +38,7 @@ const loginUser = async (email, password) => {
   try {
     document.querySelector("#login").innerHTML = "proccessing...";
     const response = await fetch(
-      "https://softjovial-backend.glitch.me/api/user/login",
+       "https://softjovial-backend.glitch.me/api/user/login",
       // "http://localhost:5000/api/user/login",
 
       {
@@ -56,7 +56,8 @@ const loginUser = async (email, password) => {
     }
     document.querySelector("#login").innerHTML = "success";
     setCookie(result.message.user, result.token);
-    window.location.replace("/dashboard.html");
+    if (result.user_info) return window.location.replace("/dashboard.html");
+    window.location.replace("/welcome.html");
   } catch (err) {
     document.querySelector(".errMessage").innerHTML = err.message;
     document.querySelector("#login").innerHTML = "try again";
