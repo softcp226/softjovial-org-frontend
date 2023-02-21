@@ -20,7 +20,8 @@ handle_submit_userInfo = async (data) => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/user/user_info/save",
+      // "http://localhost:5000/api/user/user_info/save",
+      "https://softjovial-org-backend.glitch.me/api/user/user_info/save",
       {
         method: "POST",
         headers: { "content-type": "application/json" },
