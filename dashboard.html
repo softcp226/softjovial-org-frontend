@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +17,7 @@
   <!-- CSS Files -->
   <link href="dashboard/assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
   <script src="javascript/check_login.js"></script>
-<!-- <script src="javascript/check_login.js"></script> -->
+  <!-- <script src="javascript/check_login.js"></script> -->
 
 </head>
 
@@ -26,21 +25,26 @@
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
       <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+        aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="./index.html">
         <!-- <img src="dashboard/assets/images/logo.png" class="navbar-brand-img" alt="..."> -->
         <img src="assets/images/logo'.png" class="navbar-brand-img" alt="...">
+        <br>
+        <h5 style="color:green">VIP Account</h5>
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <i class="ni ni-bell-55"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
+          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right"
+            aria-labelledby="navbar-default_dropdown_1">
             <!-- <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div> -->
@@ -60,7 +64,7 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-           
+
             <a href="dashboard/examples/profile.html" class="dropdown-item">
               <i class="ni ni-calendar-grid-58"></i>
               <span>Activity</span>
@@ -70,7 +74,7 @@
               <span>My Referral</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="" class="dropdown-item" id="logout" >
+            <a href="" class="dropdown-item" id="logout">
               <i class="ni ni-user-run"></i>
               <span>Logout</span>
             </a>
@@ -90,7 +94,8 @@
               </a>
             </div>
             <div class="col-6 collapse-close">
-              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main"
+                aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
                 <span></span>
                 <span></span>
               </button>
@@ -100,7 +105,8 @@
         <!-- Form -->
         <form class="mt-4 mb-3 d-md-none">
           <div class="input-group input-group-rounded input-group-merge">
-            <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+            <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search"
+              aria-label="Search">
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <span class="fa fa-search"></span>
@@ -122,7 +128,7 @@
           </li> -->
           <li class="nav-item">
             <a class="nav-link " href="deposit.html">
-              <i class="ni ni-send text-orange"></i>Deposit Fund 
+              <i class="ni ni-send text-orange"></i>Deposit Fund
             </a>
           </li>
           <li class="nav-item">
@@ -137,7 +143,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="create-investment.html">
-              <i class="ni ni-key-25 text-info"></i>  Create Trade
+              <i class="ni ni-key-25 text-info"></i> Create Trade
             </a>
           </li>
           <!-- <li class="nav-item">
@@ -198,7 +204,8 @@
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
-            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <img alt="Image placeholder" src="homeCss/images/user.png" id="user_passport">
@@ -212,7 +219,7 @@
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
-            
+
               <a href="Transaction-history.html" class="dropdown-item">
                 <i class="ni ni-calendar-grid-58"></i>
                 <span>Activity</span>
@@ -326,114 +333,115 @@
         </div>
       </div>
     </div>
-   
-            
-              <!-- Chart -->
-              <!-- <div class="chart"> -->
-              
 
 
-
-<div>
-  <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright">
-
-<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
-    {
-      "proName": "FOREXCOM:SPXUSD",
-      "title": "S&P 500"
-    },
-    {
-      "proName": "FOREXCOM:NSXUSD",
-      "title": "US 100"
-    },
-    {
-      "proName": "FX_IDC:EURUSD",
-      "title": "EUR/USD"
-    },
-    {
-      "proName": "BITSTAMP:BTCUSD",
-      "title": "Bitcoin"
-    },
-    {
-      "proName": "BITSTAMP:ETHUSD",
-      "title": "Ethereum"
-    }
-  ],
-  "showSymbolLogo": true,
-  "colorTheme": "light",
-  "isTransparent": false,
-  "displayMode": "adaptive",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-</div>
+    <!-- Chart -->
+    <!-- <div class="chart"> -->
 
 
 
 
-<div>
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div id="tradingview_61a53"></div>
-  <div class="tradingview-widget-copyright">
-    <!-- <a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div> -->
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <script type="text/javascript">
-  new TradingView.widget(
-  {
-  "width": "100%",
-  "height": 500,
-  "symbol": "NASDAQ:AAPL",
-  "interval": "D",
-  "timezone": "Etc/UTC",
-  "theme": "light",
-  "style": "1",
-  "locale": "en",
-  "toolbar_bg": "#f1f3f6",
-  "enable_publishing": false,
-  "allow_symbol_change": true,
-  "container_id": "tradingview_61a53"
-}
-  );
-  </script>
-</div>
-<!-- TradingView Widget END -->
-</div>
+    <div>
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright">
+
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+            async>
+              {
+                "symbols": [
+                  {
+                    "proName": "FOREXCOM:SPXUSD",
+                    "title": "S&P 500"
+                  },
+                  {
+                    "proName": "FOREXCOM:NSXUSD",
+                    "title": "US 100"
+                  },
+                  {
+                    "proName": "FX_IDC:EURUSD",
+                    "title": "EUR/USD"
+                  },
+                  {
+                    "proName": "BITSTAMP:BTCUSD",
+                    "title": "Bitcoin"
+                  },
+                  {
+                    "proName": "BITSTAMP:ETHUSD",
+                    "title": "Ethereum"
+                  }
+                ],
+                  "showSymbolLogo": true,
+                    "colorTheme": "light",
+                      "isTransparent": false,
+                        "displayMode": "adaptive",
+                          "locale": "en"
+              }
+            </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
 
 
+
+
+      <div>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div id="tradingview_61a53"></div>
+          <div class="tradingview-widget-copyright">
+            <!-- <a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div> -->
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+              new TradingView.widget(
+                {
+                  "width": "100%",
+                  "height": 500,
+                  "symbol": "NASDAQ:AAPL",
+                  "interval": "D",
+                  "timezone": "Etc/UTC",
+                  "theme": "light",
+                  "style": "1",
+                  "locale": "en",
+                  "toolbar_bg": "#f1f3f6",
+                  "enable_publishing": false,
+                  "allow_symbol_change": true,
+                  "container_id": "tradingview_61a53"
+                }
+              );
+            </script>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+
+
+      </div>
     </div>
-  </div>
-  <!--   Core   -->
-  <script src="dashboard/assets/js/plugins/jquery/dist/jquery.min.js"></script>
-  <script src="dashboard/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!--   Optional JS   -->
-  <script src="dashboard/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
-  <script src="dashboard/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
-  <!--   Argon JS   -->
-  <script src="dashboard/assets/js/argon-dashboard.min.js?v=1.1.2"></script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "argon-dashboard-free"
-      });
-  </script>
-  
+    <!--   Core   -->
+    <script src="dashboard/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="dashboard/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!--   Optional JS   -->
+    <script src="dashboard/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+    <script src="dashboard/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+    <!--   Argon JS   -->
+    <script src="dashboard/assets/js/argon-dashboard.min.js?v=1.1.2"></script>
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+      window.TrackJS &&
+        TrackJS.install({
+          token: "ee6fab19c5a04ac1a32a645abde4613a",
+          application: "argon-dashboard-free"
+        });
+    </script>
 
 
-<script src="javascript/dashboard/dashboard-dash.js"></script>
-<script src="javascript/log_out.js"></script>
-  <!-- <script src="//code.tidio.co/zreqm0mmxiljspi2bzyqc0heidivztrc.js" async></script> -->
-<!-- <script src="//code.tidio.co/cpgcwro9yo90lmr7ffwhxnngc4tzmhm1.js" async></script> -->
-<script src="//code.tidio.co/fxmex8xzxymc0qp7jtqkdg8rljy9fjes.js" async></script>
+
+    <script src="javascript/dashboard/dashboard-dash.js"></script>
+    <script src="javascript/log_out.js"></script>
+    <!-- <script src="//code.tidio.co/zreqm0mmxiljspi2bzyqc0heidivztrc.js" async></script> -->
+    <!-- <script src="//code.tidio.co/cpgcwro9yo90lmr7ffwhxnngc4tzmhm1.js" async></script> -->
+    <script src="//code.tidio.co/fxmex8xzxymc0qp7jtqkdg8rljy9fjes.js" async></script>
 
 </body>
 
